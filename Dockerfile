@@ -21,5 +21,5 @@ COPY --from=builder /kallisto/release/kallisto/kallisto /usr/local/bin/kallisto]
 COPY --from=builder /bin/mkdir /bin/mkdir]
 COPY --from=builder /bin/sh /bin/sh]
 # Set the entrypoint to the static kallisto binary
-RUN mkdir -p /data
+RUN /bin/mkdir -p /data
 ENTRYPOINT ["/usr/local/bin/kallisto"]
