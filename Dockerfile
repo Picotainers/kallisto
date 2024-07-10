@@ -1,4 +1,4 @@
-# Use an intermediate image to build minimap2
+# Use an intermediate image to build kallisto
 FROM debian:bullseye-slim AS builder
 
 RUN apt-get update && \
@@ -16,8 +16,8 @@ RUN git clone https://github.com/pachterlab/kallisto && \
 # Use a distroless base image
 FROM gcr.io/distroless/base
 
-# Copy the minimap2 binary from the builder image
+# Copy the kallisto binary from the builder image
 COPY --from=builder /kallisto/release/kallisto/kallisto /usr/local/bin/kallisto
-#COPY minimap2 /usr/local/bin/minimap2
-# Set the entrypoint to the static minimap2 binary
+# Set the entrypoint to the static kallisto binary
+RUN mkdir -p /data
 ENTRYPOINT ["/usr/local/bin/kallisto"]
