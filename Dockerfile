@@ -17,7 +17,9 @@ RUN git clone https://github.com/pachterlab/kallisto && \
 FROM gcr.io/distroless/base
 
 # Copy the kallisto binary from the builder image
-COPY --from=builder /kallisto/release/kallisto/kallisto /usr/local/bin/kallisto
+COPY --from=builder /kallisto/release/kallisto/kallisto /usr/local/bin/kallisto]
+COPY --from=builder /bin/mkdir /bin/mkdir]
+COPY --from=builder /bin/sh /bin/sh]
 # Set the entrypoint to the static kallisto binary
 RUN mkdir -p /data
 ENTRYPOINT ["/usr/local/bin/kallisto"]
