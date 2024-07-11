@@ -28,7 +28,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: bishoyh/kallisto:latest
+        tags: picotainers/kallisto:latest
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
